@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Posts from '@/components/Posts';
 import Head from 'next/head';
+import Footer from '@/components/Footer';
 
 const Home = () => {
 
@@ -22,6 +23,9 @@ const Home = () => {
       </div>
       <div>
         <Posts/>
+      </div>
+      <div>
+        <Footer/>
       </div>
     </div>
   );
