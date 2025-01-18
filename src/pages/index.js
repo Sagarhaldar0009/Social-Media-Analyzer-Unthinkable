@@ -1,11 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import Posts from '@/components/Posts';
+import Head from 'next/head';
 
 const Home = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <Head>
+        <title>
+          Sagar Haldar's Project
+        </title>
+      </Head>
       <h1 className="text-2xl font-bold text-center mb-6">
         Welcome to the Social Media Content Analyzer
       </h1>
