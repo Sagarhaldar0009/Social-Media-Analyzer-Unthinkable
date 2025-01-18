@@ -20,6 +20,7 @@
     "pdfjs-dist": "^4.10.38",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.5",
     "streamifier": "^0.1.1",
     "tesseract.js": "^6.0.0"
   },
