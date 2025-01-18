@@ -42,29 +42,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/b
 
 
 ## Folder Structure
-/social-media-content-analyzer
-├── /public                # Static assets like images and PDFs
-├── /src
-│   ├── /components        # Reusable UI components
+social-media-content-analyzer/
+├── public/
+│   ├── tesseract/
+│   │   └── worker.js
+├── src/
+│   ├── components/
 │   │   ├── FileUploader.jsx
-│   │   ├── Loader.jsx
-│   │   ├── ErrorMessage.jsx
-│   ├── /pages             # Next.js pages
-│   │   ├── api            # API routes
-│   │   │   ├── upload.js  # Handle file uploads
-│   │   │   ├── extract.js # Extract text using pdfjs-dist or Tesseract
-│   │   ├── index.js       # Home page (File Upload + Text Extraction)
-│   ├── /utils             # Utility functions
-│   │   ├── db.js          # MongoDB connection
-│   │   ├── extractPdf.js  # PDF text extraction logic
-│   │   ├── extractOcr.js  # OCR extraction logic using Tesseract.js
-│   ├── /styles            # CSS or Tailwind configuration
-│   │   ├── globals.css    # Global styles
-│   │   ├── FileUploader.module.css
-│   ├── /lib               # Custom libraries/helpers
-│   │   ├── uploadHelper.js # File processing utilities
-├── /tests                 # Unit and integration tests
-├── .env.local             # Environment variables
-├── package.json           # Dependencies and scripts
-├── next.config.js         # Next.js configuration
-├── README.md              # Documentation
+│   │   ├── ExtractedTextDisplay.jsx
+│   ├── pages/
+│   │   ├── api/
+│   │   │   ├── extract.js
+│   │   │   ├── upload.js
+│   │   └── index.js
+│   ├── utils/
+│   │   ├── ocr.js
+│   │   ├── pdfParser.js
+│   └── styles/
+│       └── globals.css
+├── .env.local
+├── README.md
+├── package.json
