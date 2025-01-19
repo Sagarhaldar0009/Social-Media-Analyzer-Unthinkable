@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { httpAxios } from '@/lib/httpHelper';
 import { useDropzone } from 'react-dropzone';
 import { AiOutlineFilePdf, AiOutlineFileImage } from 'react-icons/ai';
 
@@ -20,22 +21,47 @@ const FileUpload = () => {
     setUploadError(null);
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!selectedFile) return;
+
+  //   setLoading(true);
+
+  //   const formData = new FormData();
+  //   formData.append('file', selectedFile);
+
+  //   try {
+  //     const response = await axios.post('/api/upload', formData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     });
+
+  //     setLoading(false);
+  //     setFileUrl(response.data.filePath);
+  //     setExtractedText(response.data.extractedText);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setUploadError('Failed to upload file. Please try again.');
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedFile) return;
-
+  
     setLoading(true);
-
+  
     const formData = new FormData();
     formData.append('file', selectedFile);
-
+  
     try {
-      const response = await axios.post('/api/upload', formData, {
+      const response = await httpAxios.post('/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-
+  
       setLoading(false);
       setFileUrl(response.data.filePath);
       setExtractedText(response.data.extractedText);
@@ -44,6 +70,8 @@ const FileUpload = () => {
       setUploadError('Failed to upload file. Please try again.');
     }
   };
+
+
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: handleDrop,
