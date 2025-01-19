@@ -1,5 +1,5 @@
 import { extractTextFromPDF, extractTextFromImage } from '@/lib/ocr';
-import { dbConnect } from '@/lib/db';
+import { connectDB } from '@/lib/db';
 import ExtractedText from '@/models/File';
 
 export default async function handler(req, res) {
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     }
 
     // Save to database
-    await dbConnect();
+    await connectDB();
     const savedText = await ExtractedText.create({ filePath, fileType, extractedText });
 
     return res.status(200).json({ id: savedText._id, extractedText });
